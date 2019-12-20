@@ -1,2 +1,3 @@
 # Learn-Something-From-Tang
-通识课作业
+  
+  Learn some knowledge of algorithms from Mr.Tang.
