@@ -13,6 +13,7 @@ from matplotlib.colors import ListedColormap,Colormap
 from matplotlib import cm
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import hinge_loss,log_loss
 import math
 import time
 import scipy.io as sio
@@ -63,7 +64,7 @@ X_test = ss.transform(X_test)
 p = ss.transform(p)
 
 
-clf = SGDClassifier(loss="squared_hinge", alpha=0.01, max_iter=2000, fit_intercept=True,verbose=True)  #
+clf = SGDClassifier(loss="hinge", alpha=0.01, max_iter=2000, fit_intercept=True,verbose=True)  #
 clf.fit(X_train, y_train)
 #可视化训练过程损失
 # text_area, sys.stdout = sys.stdout, stdout
@@ -77,9 +78,7 @@ clf.fit(X_train, y_train)
 # plt.xlabel('epoch')
 # plt.ylabel('loss')
 # plt.show()
-
-
-
+clf.loss_function
 X_test_result = clf.predict(X_test)
 p_result = clf.decision_function(p)
 plt.figure()
