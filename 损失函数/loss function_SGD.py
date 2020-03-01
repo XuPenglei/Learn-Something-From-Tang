@@ -78,7 +78,7 @@ clf.fit(X_train, y_train)
 # plt.xlabel('epoch')
 # plt.ylabel('loss')
 # plt.show()
-clf.loss_function
+# clf.loss_function
 X_test_result = clf.predict(X_test)
 p_result = clf.decision_function(p)
 plt.figure()
