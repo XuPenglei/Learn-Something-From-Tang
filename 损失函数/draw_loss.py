@@ -41,9 +41,9 @@ def modified_huber_l(y_true,y_pred):
     return np.where(y_pred*y_true>=-1,np.square(np.max(0,1-y_true*y_pred)),-4*y_pred*y_true)
 def log_l(y_true,y_pred):
     return np.log(1+np.exp(-y_true*y_pred))
-def perceptron_l(y_true,y_pred,t=0.095):
+def perceptron_l(y_true,y_pred,t=0):
     """ 损失函数不对 """
-    return np.where(np.abs(y_pred-y_true)<=t,0,1)
+    return np.where(y_pred*y_true<=t,-(y_pred*y_true),0)
 
 loss_name='perceptron'
 if loss_name=='hinge':
